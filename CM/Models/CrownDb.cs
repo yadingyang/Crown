@@ -49,7 +49,11 @@ namespace CM.Models
         public int Qty { get; set; }
     }
 
-
+    public class trry {
+    
+    
+    
+    }
 
     public class CrownContext : DbContext
     {
