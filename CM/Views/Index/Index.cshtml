@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CM.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@*<table>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>  @Html.DisplayFor(modelitem => item.Name)</td>
+            <td> @Html.DisplayFor(modelitem => item.Descn) </td>
+        </tr>
+    }
+    </table>*@
+    
+
+<div ng-app="IndexApp" ng-controller="Index">
+    @*<table>
+        <tr ng-repeat="x in cates">
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Descn }}</td>
+        </tr>
+    </table>*@
+
+    <table>
+        <tr ng-repeat="x in ca">
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Descn}}</td>
+        </tr>
+    </table>
+
+    </div>
+
+<script src="~/Scripts/app.js"></script>
+<script src="~/Scripts/controller.js"></script>
