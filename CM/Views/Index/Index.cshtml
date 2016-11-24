@@ -5,26 +5,17 @@
 }
 
 <h2>Index</h2>
-@*<table>
-    @foreach (var item in Model)
-    {
+  
+@using (Html.BeginForm("Search","Index"))
+{
 
-        <tr>
-            <td>  @Html.DisplayFor(modelitem => item.Name)</td>
-            <td> @Html.DisplayFor(modelitem => item.Descn) </td>
-        </tr>
-    }
-    </table>*@
-    
+        @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Search" />
+}
+
 
 <div ng-app="IndexApp" ng-controller="Index">
-    @*<table>
-        <tr ng-repeat="x in cates">
-            <td>{{ x.Name }}</td>
-            <td>{{ x.Descn }}</td>
-        </tr>
-    </table>*@
-
+   
     <table>
         <tr ng-repeat="x in ca">
             <td>{{ x.Name }}</td>

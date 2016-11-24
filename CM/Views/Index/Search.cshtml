@@ -1,0 +1,17 @@
+﻿
+@model IEnumerable<CM.Models.Product>
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>  @Html.DisplayFor(modelitem => item.Name)</td>
+        <td> @Html.DisplayFor(modelitem => item.Descn) </td>
+       
+    </tr>
+}
+    </table>
