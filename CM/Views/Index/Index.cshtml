@@ -14,27 +14,6 @@
 }
 
  
-@*<div ng-app="IndexApp" ng-controller="Index">
-   
-    <table>
-
-        <tr ng-repeat="x in ca">
-            <td>{{ x.CategoryId}}</td>
-
-            <td>@Html.ActionLink("{{ x.Name }}", "Cate", new
-           {
-              
-               id = {{ x.CategoryId }}
-           })</td>
-           
-            <td>{{ x.Descn}}</td>
-        </tr>
-    </table>*@
-    
- @*</div>*@
-
-
-
 <table>
    
     @foreach (var item in Model)
