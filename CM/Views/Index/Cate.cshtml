@@ -1,0 +1,16 @@
+﻿@model IEnumerable<CM.Models.Product>
+@{
+     ViewBag.Title = "Cate";
+}
+
+<h2>Cate</h2>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>  @Html.DisplayFor(modelitem => item.Name)</td>
+            <td> @Html.DisplayFor(modelitem => item.Descn) </td>
+
+        </tr>
+    }
+</table>

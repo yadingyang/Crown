@@ -14,16 +14,61 @@
 }
 
  
-<div ng-app="IndexApp" ng-controller="Index">
+@*<div ng-app="IndexApp" ng-controller="Index">
    
     <table>
+
         <tr ng-repeat="x in ca">
-            <td>{{ x.Name }}</td>
+            <td>{{ x.CategoryId}}</td>
+
+            <td>@Html.ActionLink("{{ x.Name }}", "Cate", new
+           {
+              
+               id = {{ x.CategoryId }}
+           })</td>
+           
             <td>{{ x.Descn}}</td>
         </tr>
-    </table>
+    </table>*@
+    
+ @*</div>*@
 
-    </div>
+
+
+<table>
+   
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelitem => item.CategoryId) </td>
+            
+            <td>
+                @Html.ActionLink(item.Name, "Cate", new
+           {
+               id = item.CategoryId
+            })
+        </td>
+            <td>  @Html.DisplayFor(modelitem => item.Descn)</td>
+           
+            
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="~/Scripts/app.js"></script>
 <script src="~/Scripts/controller.js"></script>

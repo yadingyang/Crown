@@ -15,7 +15,10 @@ namespace CM.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var Cate = from s in db.Cat
+                            select s;
+          
+            return View(Cate.ToList());
 
         }
 
@@ -50,6 +53,16 @@ namespace CM.Controllers
 
         }
 
+  
+
+    public ActionResult Cate(int id)
+    {
+        var result = from s in db.Pro
+                    where s.CategoryId==id
+                     select s;
+                       
+            return View(result);
+        
     }
 
 
@@ -58,7 +71,5 @@ namespace CM.Controllers
 
 
 
-
-
-
+  }
 }
