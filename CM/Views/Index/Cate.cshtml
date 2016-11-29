@@ -8,8 +8,13 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>  @Html.DisplayFor(modelitem => item.Name)</td>
-            <td> @Html.DisplayFor(modelitem => item.Descn) </td>
+            <td>
+                @Html.ActionLink(item.Name, "Detail", new
+        {
+            id = item.ProductId
+        })
+            </td>  
+           
 
         </tr>
     }

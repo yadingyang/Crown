@@ -16,13 +16,13 @@ namespace CM.Controllers
         public ActionResult Index()
         {
             var Cate = from s in db.Cat
-                            select s;
-          
+                       select s;
+
             return View(Cate.ToList());
 
         }
 
-        public ActionResult Search (string SearchString)
+        public ActionResult Search(string SearchString)
         {
             var result = from s in db.Pro
                          select s;
@@ -30,18 +30,13 @@ namespace CM.Controllers
             if (!String.IsNullOrEmpty(SearchString))
             {
                 var Result = result.Where(s => s.Name.Contains(SearchString));
-                
+
                 return View(Result);
             }
-            
+
             else
-                { return View(); }
+            { return View(); }
         }
-
-       
-
-
-
 
         public JsonResult GetCate()
         {
@@ -53,23 +48,32 @@ namespace CM.Controllers
 
         }
 
-  
 
-    public ActionResult Cate(int id)
-    {
-        var result = from s in db.Pro
-                    where s.CategoryId==id
-                     select s;
-                       
+
+        public ActionResult Cate(int id)
+        {
+            var result = from s in db.Pro
+                         where s.CategoryId == id
+                         select s;
+
             return View(result);
-        
+
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var result = from s in db.Pro
+                         where s.ProductId == id
+                         select s;
+            
+
+            return View(result);
+
+        }
+
+
+
+
+
     }
-
-
-
-
-
-
-
-  }
 }

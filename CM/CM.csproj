@@ -188,6 +188,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Hair.jpg" />
+    <Content Include="Images\Hisense.jpg" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -1028,6 +1030,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Index\Search.cshtml" />
     <Content Include="Views\Index\Cate.cshtml" />
+    <Content Include="Views\Index\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

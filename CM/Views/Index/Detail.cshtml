@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CM.Models.Product>
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h1>Product Detail</h1>
+
+@foreach (var item in Model)
+{
+ <h2>   @Html.DisplayFor(modelitem => item.Name) </h2>
+    <br>
+ <h3>Description</h3>  @Html.DisplayFor(modelitem => item.Descn)
+    <br>
+    <img src="@Url.Content(item.Image)" alt="Image" />
+    <br>
+    <h3>Price</h3> @Html.DisplayFor(modelitem => item.Listprice)
+}
+
