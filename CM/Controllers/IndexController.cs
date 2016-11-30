@@ -48,8 +48,6 @@ namespace CM.Controllers
 
         }
 
-
-
         public ActionResult Cate(int id)
         {
             var result = from s in db.Pro
@@ -65,14 +63,13 @@ namespace CM.Controllers
             var result = from s in db.Pro
                          where s.ProductId == id
                          select s;
-            
+
 
             return View(result);
 
         }
 
-
-
+     
 
 
     }
