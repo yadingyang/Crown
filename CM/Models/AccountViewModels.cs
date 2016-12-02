@@ -135,7 +135,34 @@ namespace CM.Models
             }
         }
 
+        public virtual string ProName
 
+
+        {
+            get
+            {
+                return GetPropertyValue("ProName").ToString();
+            }
+            set
+            {
+                SetPropertyValue("ProName", value);
+            }
+        }
+
+
+        public virtual string ProQty
+
+
+        {
+            get
+            {
+                return GetPropertyValue("ProQty").ToString();
+            }
+            set
+            {
+                SetPropertyValue("ProQty", value);
+            }
+        }
 
 
         public virtual ProfileCommon GetProfile(string username)

@@ -16,9 +16,26 @@
     <h3>Price</h3> @Html.DisplayFor(modelitem => item.Listprice)
 }
 
-@foreach (var item in Model) { 
-<input type="button" title="Add to Cart" value="Add to Cart" onclick="location.href='@Url.Action("ShoppingCart", "Index", new
-        {
-            id = item.ProductId
-        })'" />
+@*<div ng-app="IndexApp" ng-controller="Index">
+    Qty: <input ng-model="Qty" />
+    {{Qty}}
+
+    @foreach (var item in Model)
+    {
+        <input type="button" title="Add to Cart" value="Add to Cart" onclick="location.href='@Url.Action("ShoppingCart", "Index", new{id = item.ProductId, Name=item.Name, Qty= 7 } )'" />
+    }*@
+    @*</div>*@
+
+@foreach (var item in Model)
+{
+
+    using (Html.BeginForm("ShoppingCart", "Index", new { id = item.ProductId, Name = item.Name }))
+    {
+
+        @Html.TextBox("Qty") <br />
+        <input type="submit" value="Add to Cart" />
+    }
+
 }
+
+

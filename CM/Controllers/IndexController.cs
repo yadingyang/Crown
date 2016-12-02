@@ -83,7 +83,7 @@ namespace CM.Controllers
 
 
 
-        public ActionResult ShoppingCart(string id)
+        public ActionResult ShoppingCart(string Qty,string id,string Name)
         { 
            
             ViewBag.CurrentU = User.Identity.GetUserName();
@@ -92,10 +92,14 @@ namespace CM.Controllers
             var myprofile = Profile as ProfileCommon;
 
             myprofile.ProId = id;
-            
 
+            myprofile.ProName = Name;
 
-            ViewBag.PId = myprofile.ProId;
+            myprofile.ProQty = Qty;
+
+            ViewBag.Id = myprofile.ProId;
+            ViewBag.Name = myprofile.ProName;
+            ViewBag.Qty = myprofile.ProQty;
 
 
 
