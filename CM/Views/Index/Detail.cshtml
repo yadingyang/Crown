@@ -16,3 +16,9 @@
     <h3>Price</h3> @Html.DisplayFor(modelitem => item.Listprice)
 }
 
+@foreach (var item in Model) { 
+<input type="button" title="Add to Cart" value="Add to Cart" onclick="location.href='@Url.Action("ShoppingCart", "Index", new
+        {
+            id = item.ProductId
+        })'" />
+}

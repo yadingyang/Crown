@@ -1,5 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Profile;
+
+
+
+
 
 namespace CM.Models
 {
@@ -109,4 +114,37 @@ namespace CM.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+
+
+
+
+    public class ProfileCommon : ProfileBase
+    {
+        public virtual string ProId 
+
+      
+        {
+            get
+            {
+                return GetPropertyValue("ProId").ToString();
+            }
+            set
+            {
+                SetPropertyValue("ProId", value);
+            }
+        }
+
+
+
+
+        public virtual ProfileCommon GetProfile(string username)
+        {
+            return ((ProfileCommon)(ProfileBase.Create(username)));
+        }
+
+    }
 }
+
+
+

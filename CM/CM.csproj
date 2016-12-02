@@ -1031,6 +1031,7 @@
     <Content Include="Views\Index\Search.cshtml" />
     <Content Include="Views\Index\Cate.cshtml" />
     <Content Include="Views\Index\Detail.cshtml" />
+    <Content Include="Views\Index\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

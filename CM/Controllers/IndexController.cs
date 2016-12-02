@@ -7,6 +7,18 @@ using CM.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Microsoft.Ajax;
+using System.Collections;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.Profile;
+using System.Web.Security;
+using System.Globalization;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+
+
 namespace CM.Controllers
 {
     public class IndexController : Controller
@@ -17,7 +29,7 @@ namespace CM.Controllers
         {
             var Cate = from s in db.Cat
                        select s;
-
+            
             return View(Cate.ToList());
 
         }
@@ -69,8 +81,27 @@ namespace CM.Controllers
 
         }
 
-     
 
 
+        public ActionResult ShoppingCart(string id)
+        { 
+           
+            ViewBag.CurrentU = User.Identity.GetUserName();
+
+
+            var myprofile = Profile as ProfileCommon;
+
+            myprofile.ProId = id;
+            
+
+
+            ViewBag.PId = myprofile.ProId;
+
+
+
+
+
+            return View();
+        }
     }
 }
