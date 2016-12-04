@@ -101,9 +101,14 @@ namespace CM.Controllers
             ViewBag.Name = myprofile.ProName;
             ViewBag.Qty = myprofile.ProQty;
 
-
-
-
+            int idint= Int32.Parse(id);
+            var result = from s in db.Pro
+                         where s.ProductId == idint
+                         select s;
+            var Resu = result.First();
+            int Qtyint = Int32.Parse(Qty);
+            System.Decimal Totalpri = Resu.Listprice * Qtyint;
+            ViewBag.TotalPrice = Totalpri;
 
             return View();
         }
