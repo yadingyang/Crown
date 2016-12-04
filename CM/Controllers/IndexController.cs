@@ -82,7 +82,7 @@ namespace CM.Controllers
         }
 
 
-
+   
         public ActionResult ShoppingCart(string Qty,string id,string Name)
         { 
            
@@ -112,5 +112,38 @@ namespace CM.Controllers
 
             return View();
         }
+
+
+  [HttpGet]
+        public ActionResult ShoppingCart(string NewQty)
+        {
+
+            ViewBag.CurrentU = User.Identity.GetUserName();
+
+            var myprofile = Profile as ProfileCommon;
+
+            myprofile.ProQty = NewQty;
+
+            ViewBag.Id = myprofile.ProId;
+            ViewBag.Name = myprofile.ProName;
+            ViewBag.Qty = myprofile.ProQty;
+
+            int idint = Int32.Parse(myprofile.ProId);
+            var result = from s in db.Pro
+                         where s.ProductId == idint
+                         select s;
+            var Resu = result.First();
+            int Qtyint = Int32.Parse(NewQty);
+            System.Decimal Totalpri = Resu.Listprice * Qtyint;
+            ViewBag.TotalPrice = Totalpri;
+
+            return View(); ;
+        }
+
+
+
+
+
+
     }
 }

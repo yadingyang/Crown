@@ -7,4 +7,10 @@
 
 Product: <p>@ViewBag.Name</p>
 QYT: <p>@ViewBag.Qty</p>
+@using (Html.BeginForm("ShoppingCart", "Index", FormMethod.Get))
+{
+
+    @Html.TextBox("NewQty") <br />
+        <input type="submit" value="UpdateQty" />
+}
 Total Price in US Dollar: <p>@ViewBag.TotalPrice</p>
