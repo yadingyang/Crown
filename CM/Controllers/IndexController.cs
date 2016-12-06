@@ -17,6 +17,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 
 namespace CM.Controllers
@@ -29,7 +31,7 @@ namespace CM.Controllers
         {
             var Cate = from s in db.Cat
                        select s;
-            
+
             return View(Cate.ToList());
 
         }
@@ -82,10 +84,10 @@ namespace CM.Controllers
         }
 
 
-   
-        public ActionResult ShoppingCart(string Qty,string id,string Name)
-        { 
-           
+
+        public ActionResult ShoppingCart(string Qty, string id, string Name)
+        {
+
             ViewBag.CurrentU = User.Identity.GetUserName();
 
 
@@ -101,7 +103,7 @@ namespace CM.Controllers
             ViewBag.Name = myprofile.ProName;
             ViewBag.Qty = myprofile.ProQty;
 
-            int idint= Int32.Parse(id);
+            int idint = Int32.Parse(id);
             var result = from s in db.Pro
                          where s.ProductId == idint
                          select s;
@@ -114,7 +116,7 @@ namespace CM.Controllers
         }
 
 
-  [HttpGet]
+        [HttpGet]
         public ActionResult ShoppingCart(string NewQty)
         {
 
@@ -140,7 +142,47 @@ namespace CM.Controllers
             return View(); ;
         }
 
+        public ActionResult Order()
+        {
 
+            return View();
+        }
+
+        public ActionResult Result(string Address, string Pay)
+        {
+            string UserName = User.Identity.GetUserName();
+
+            var myprofile = Profile as ProfileCommon;
+
+            DateTime dt = DateTime.Now;
+
+            Item item = new Item();
+            item.ProductId = Int32.Parse(myprofile.ProId);
+            item.Qty = Int32.Parse(myprofile.ProQty);
+
+
+            db.Ite.Add(item);
+            db.SaveChanges();
+            ViewBag.OrderId = dt.Second;
+
+            Order order = new Order();
+
+            order.UserName = UserName;
+            order.OrderDate = dt;
+            order.Addr1 = Address;
+            order.Pay = Pay;
+
+            db.Ord.Add(order);
+            db.SaveChanges();
+
+            return View();
+        }
+
+        public ActionResult Manage()
+        {
+
+            return View();
+        }
 
 
 

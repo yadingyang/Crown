@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Address and Pay Information</h2>
+
+@using (Html.BeginForm("Result", "Index"))
+{
+<p>Address:</p> @Html.TextBox("Address")
+    <p>Card Number:</p> @Html.TextBox("Pay")
+   
+        <input type="submit" value="Place Order" />
+}

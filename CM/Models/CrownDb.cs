@@ -39,6 +39,7 @@ namespace CM.Models
         public string Zip { get; set; }
         public string Phone { get; set; }
         public string Status { get; set; }
+        public string Pay { get; set; }
     }
 
     public class Item

@@ -14,3 +14,5 @@ QYT: <p>@ViewBag.Qty</p>
         <input type="submit" value="UpdateQty" />
 }
 Total Price in US Dollar: <p>@ViewBag.TotalPrice</p>
+
+<input type="button" title="Checkout" value="Checkout" onclick="location.href='@Url.Action("Order", "Index")'" />

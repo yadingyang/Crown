@@ -9,7 +9,7 @@
 <input type="button" title="Login" value="Login" onclick="location.href='@Url.Action("Login", "Account")'" />
 <input type="button" title="Signup" value="Signup" onclick="location.href='@Url.Action("Register", "Account")'" />
 <input type="button" title="Logout" value="Logout" onclick="location.href='@Url.Action("LogOff", "Account")'" />
-  
+ 
 @using (Html.BeginForm("Search","Index"))
 {
 
@@ -38,8 +38,10 @@
     }
 </table>
 
-
-
+  @if (Roles.IsUserInRole("Admin"))
+  {
+    @Html.ActionLink("Manage", "Index")
+  }
 
 
 
